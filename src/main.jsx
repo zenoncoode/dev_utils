@@ -12,6 +12,7 @@ import GeradorCPF from './pages/GeradorCPF/GeradorCPF.tsx'
 import ConversorPDF from './pages/ConversorPDF/ConversorPDF.tsx'
 import CalculadoraIMC from './pages/CalculadoraIMC/CalculadoraIMC.tsx'
 import ConversorYouTube from './pages/ConversorYouTube/ConversorYouTube.tsx'
+import NotFound from './pages/NotFound/NotFound.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/conversor-pdf" element={<ConversorPDF />} />
         <Route path="/conversor-youtube" element={<ConversorYouTube />} />
         <Route path="/calculadora-imc" element={<CalculadoraIMC />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
