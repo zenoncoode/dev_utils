@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const links = [
   { label: "Calculadora de IMC", href: "/calculadora-imc" },
   { label: "Conversor YouTube", href: "/conversor-youtube" },
@@ -17,10 +18,8 @@ export default function App() {
         <div>
           <nav>
             {links.map(({ label, href }) => (
-              <div>
-                <a key={href} href={href}>
-                  {label}
-                </a>
+              <div key={href}>
+                <Link to={href}>{label}</Link>
               </div>
             ))}
           </nav>
