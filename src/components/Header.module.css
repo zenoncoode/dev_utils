@@ -93,4 +93,10 @@
     background: rgba(0, 0, 0, 0.3);
     z-index: 1000;
   }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+    color: white;
+  }
 }
