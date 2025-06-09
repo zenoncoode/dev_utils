@@ -1,9 +1,11 @@
+/* Header.module.css */
 .header {
   width: 100%;
   background-color: #2563eb;
   padding: 16px 24px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .title {
@@ -13,7 +15,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 12px; /* Espaço entre logo e texto */
+  gap: 12px;
 }
 
 .logo {
@@ -23,6 +25,16 @@
   display: block;
 }
 
+.menuButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Menu padrão (desktop) */
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -43,4 +55,42 @@
 
 .navLink:hover {
   background-color: #e5e7eb;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .menuButton {
+    display: block;
+  }
+
+  .nav {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 240px;
+    height: 100%;
+    background-color: #f9fafb;
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1001;
+    border-right: 1px solid #e5e7eb;
+  }
+
+  .showMenu {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    content: "";
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 64px);
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
 }

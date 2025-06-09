@@ -1,5 +1,5 @@
 // src/components/Header.tsx
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 
@@ -14,6 +14,8 @@ const links = [
 ];
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div>
       <header className={styles.header}>
@@ -21,14 +23,21 @@ export default function Header() {
           <img src="/utils.png" alt="Logo" className={styles.logo} />
           Devs.util
         </Link>
+        <button className={styles.menuButton} onClick={() => setMenuOpen(!menuOpen)}>
+          ☰
+        </button>
       </header>
-      <nav className={styles.nav}>
+
+      <nav className={`${styles.nav} ${menuOpen ? styles.showMenu : ""}`}>
         {links.map(({ label, href }) => (
-          <Link key={href} to={href} className={styles.navLink}>
+          <Link key={href} to={href} className={styles.navLink} onClick={() => setMenuOpen(false)}>
             {label}
           </Link>
         ))}
       </nav>
+
+      {/* Overlay para fechar ao clicar fora */}
+      {menuOpen && <div className={styles.overlay} onClick={() => setMenuOpen(false)} />}
     </div>
   );
 }
